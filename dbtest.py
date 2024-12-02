@@ -1,4 +1,5 @@
 import sqlite3
+import datetime
 
 connection = sqlite3.connect('data.db')
 
@@ -9,6 +10,7 @@ def create_table(con):
         "id"	INTEGER,
         "vorname"	TEXT,
         "nachname"	TEXT,
+        "geburtsdatum"	DATETIME,
         PRIMARY KEY("id" AUTOINCREMENT)
     );"""
     try:
@@ -21,13 +23,13 @@ create_table(connection)
 
 # CRUD 
 
-def insert(con, vorname, nachname):
+def insert(con, vorname, nachname, datum):
     stmt = con.cursor()
-    SQL = 'INSERT INTO kunden VALUES(null, ?, ?)'
-    stmt.execute(SQL, (vorname, nachname))
+    SQL = 'INSERT INTO kunden VALUES(null, ?, ?, ?)'
+    stmt.execute(SQL, (vorname, nachname, datum))
     con.commit()
 
-insert(connection, 'Bruce', 'Banner')
+#insert(connection, 'Peter', 'Parker', datetime.datetime(2000, 10, 1))
 
 def insert_all(con, liste):
     stmt = con.cursor()
@@ -62,7 +64,7 @@ def delete_by_id(con, id):
 #delete_by_id(connection, 1)
 #delete_by_id(connection, 3)
 
-#for k in read_all(connection):
-#    print(f"{k[0]} : {k[1]} {k[2]}")
+for k in read_all(connection):
+    print(f"{k[0]} : {k[1]} {k[2]} {k[3]}")
 
 connection.close()
