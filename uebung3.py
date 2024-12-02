@@ -40,7 +40,6 @@ def stats(val_list): # 3,2 5,1,3
         print(f"{s} mal {i}")
         i += 1
 
-
 def main():
     print(roll())
     print(roll())
