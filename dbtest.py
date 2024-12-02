@@ -27,7 +27,7 @@ def insert(con, vorname, nachname):
     stmt.execute(SQL, (vorname, nachname))
     con.commit()
 
-#insert(connection, 'Bruce', 'Banner')
+insert(connection, 'Bruce', 'Banner')
 
 def insert_all(con, liste):
     stmt = con.cursor()
@@ -59,10 +59,10 @@ def delete_by_id(con, id):
     stmt.execute('DELETE FROM kunden WHERE id = ?', (id,))
     con.commit()
 
-delete_by_id(connection, 1)
-delete_by_id(connection, 3)
+#delete_by_id(connection, 1)
+#delete_by_id(connection, 3)
 
-for k in read_all(connection):
-    print(f"{k[0]} : {k[1]} {k[2]}")
+#for k in read_all(connection):
+#    print(f"{k[0]} : {k[1]} {k[2]}")
 
 connection.close()
