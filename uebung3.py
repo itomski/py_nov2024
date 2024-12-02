@@ -17,3 +17,39 @@
 # x mal 3: 
 # x mal 
 # etc.
+
+import random
+
+def roll():
+    return random.randint(1,6)
+
+def roll_more(num):
+    #return [roll() for _ in range(num)]
+    ergs = []
+    for _ in range(num):
+        ergs.append(roll())
+    return ergs
+
+
+def stats(val_list): # 3,2 5,1,3
+    stats = [0,0,0,0,0,0]
+    for val in val_list:
+        stats[val - 1] += 1
+    i = 1
+    for s in stats:
+        print(f"{s} mal {i}")
+        i += 1
+
+
+def main():
+    print(roll())
+    print(roll())
+    print(roll())
+    print(roll_more(10))
+    erg = roll_more(10)
+    print(erg)
+    print()
+    stats(erg)
+
+if __name__ == '__main__':
+    main()
