@@ -49,6 +49,7 @@ class Author:
     def __str__(self):
         return "Name: " + self.__name
 
+# Verwendung
 
 a1 = Author("William Gibson")
 a2 = Author("Bruce Sterling")
